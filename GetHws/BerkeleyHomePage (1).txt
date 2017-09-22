@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content ="CS61A: Structure and Interpretation of Computer Programs" />
+    <meta name="keywords" content ="CS61A, Computer Science, CS, 61A, Programming, John DeNero, Berkeley, EECS" />
+    <meta name="author" content ="John DeNero, Soumya Basu, Kevin Chen, Rohan Chitnis, Timothy Greeno, Jessica Gu, Brian Hou, Robert Huang, Andrew Huang, Joy Jeng, Austin Le, Youri Park, Harold Pimentel, Sumukh Sridhara, Steven Tang, Michelle Tian, Alana Tran, Dickson Tsai, Max Wolffe, Albert Wu, Marvin Zhang" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/images/favicon.ico">
+    
+
+    <title> CS 61A Spring 2015</title>
+
+  </head>
+
+  <body id="index" class="home">
+    <div class="head">
+      <h1>
+        <a href="http://cs61a.org/">
+          <span class="coursename">CS 61A</span>
+        </a>
+      </h1>
+      <p>Structure and Interpretation of Computer Programs, Spring 2015</p>
+      <p>
+        <span class="instructors">
+          Instructor: John DeNero
+        </span>
+      </p>
+      <hr/>
+      <ul class="navigation">
+        <a href="./"><li>Calendar</li></a>
+<a href="./by_type.html"><li>Resources by Type</li></a>
+<a href="./by_topic.html"><li>Resources by Topic</li></a>
+<a href="./weekly.html"><li>Weekly Schedule</li></a>
+<a href="./resources.html"><li>Additional Resources</li></a>
+<a href="./problems/"><li>Practice Problems</li></a>
+<a href="./regrades.html"><li>Regrade Requests</li></a>
+
+      </ul>
+      <hr/>
+      <ul class="navigation">
+        <a href="./about.html"><li>Course Info</li></a>
+<a href="./extra.html"><li>Extra Lectures</li></a>
+<a href="./staff.html"><li>Staff</li></a>
+
+        <a href="https://piazza.com/berkeley/spring2015/cs61a"><li>Piazza</li></a>
+
+      </ul>
+      <hr/>
+    </div>
+
+    <div id="content">
+      <h2>Announcements</h2>
+
+<div class="announcements">
+
+<!-- Announcement Content -->
+<div id="announcements"></div>
+
+<!-- Announcement Scripts -->
+<script>
+  var announcements = [
+    "<div class=\"announcement\">\n<span class=\"date\">5/8/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Congratulations to the creators of <a href=\"proj/scheme-gallery/#submission-2---complex-sine-fractal\">Complex Sine Fractal</a>, the\n  winning entry in the <a href=\"proj/scheme-gallery/\">Scheme Recursive Art Contest</a>!</li>\n  <li>The final exam will be held on <a href=\"http://osoc.berkeley.edu/OSOC/final_ex?p_deptname=&mdash;+Choose+a+Department+Name+&mdash;&x=0&y=0&p_dept=cs&p_course=61a&p_term=SP\">Tuesday 5/12</a> starting at 11:30AM in\n  the <a href=\"http://recsports.berkeley.edu/facilities/rent-a-facility/rsf-gyms\">RSF Fieldhouse</a>. (RSF <a href=\"http://www.ucbd.org/events/classic/directions-to-rsf-fieldhouse\">directions</a>)</li>\n  <li>The <a href=\"assets/pdfs/61a-sp15-final.pdf\">final</a>, <a href=\"assets/pdfs/61a-sp15-final-guides.pdf\">guides</a>, and <a href=\"assets/pdfs/61a-sp15-final-solution.pdf\">solutions</a> are posted.</li>\n  <li>Thanks for a delightful semester!</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/29/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Homework 9 (4 points) due Wednesday 4/29 @ 11:59pm</li>\n  <li>Quiz 4 due Thursday 4/30 @ 11:59pm</li>\n  <li><p>No videos on Friday 5/1; Come to lecture (and fill out the HKN course survey at the end)</p>\n\n  <ul>\n    <li>If at least 60% of students respond, everyone gets an extra credit point</li>\n  </ul></li>\n  <li><p>Next week: 18 hours of review sessions</p>\n\n  <ul>\n    <li>Monday, Tuesday, &amp; Wednesday 11-5 in 271/273 Soda</li>\n    <li>Two TAs are available every hour</li>\n    <li>One room will be a review session going over topic-specific problems</li>\n    <li>The other room is unstructured; staff will answer any questions you have</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/27/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Recursive Art Contest entries due Monday 4/27 @ 11:59pm</p>\n\n  <ul>\n    <li>Email your code &amp; a screenshot of your art to cs61a-tae@imail.eecs.berkeley.edu (Albert)</li>\n  </ul></li>\n  <li>Homework 9 merged with Homework 10; both are due Wednesday 4/29 @ 11:59pm</li>\n  <li>Quiz 4 (SQL) released Tuesday 4/28 is due Thursday 4/30 @ 11:59pm</li>\n  <li><p>No videos on Friday 5/1; Come to lecture (and fill out the HKN course survey at the end)</p>\n\n  <ul>\n    <li>If at least 60% of students respond, everyone gets an extra credit point</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/24/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Recursive Art Contest entries due Monday 4/27 @ 11:59pm</p>\n\n  <ul>\n    <li>Email your code &amp; a screenshot of your art to cs61a-tae@imail.eecs.berkeley.edu (Albert)</li>\n  </ul></li>\n  <li>Homework 9 merged with Homework 10; both are due Wednesday 4/29 @ 11:59pm</li>\n  <li>Quiz 4 (SQL) released Tuesday 4/28 is due Thursday 4/30 @ 11:59pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/22/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Project 4 due Thursday 4/23 @ 11:59pm</p>\n\n  <ul>\n    <li>Early submission point #2: All questions (including Extra Credit) by Wednesday 4/22 @ 11:59pm</li>\n  </ul></li>\n  <li><p>Recursive Art Contest entries due Monday 4/27 @ 11:59pm</p>\n\n  <ul>\n    <li>Email your code &amp; a screenshot of your art to cs61a-tae@imail.eecs.berkeley.edu (Albert)</li>\n  </ul></li>\n  <li>Homework 9 merged with Homework 10; both are due Wednesday 4/29 @ 11:59pm</li>\n  <li>Quiz 4 (SQL) released Tuesday 4/28 is due Thursday 4/30 @ 11:59pm</li>\n  <li>Guest lecture from Soumya Basu this Friday 4/24 @ 2pm (videos unaffected)</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/20/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Please complete the <a href=\"http://goo.gl/ajEBkT\">Course Survey on Resources</a> by Monday 4/20 @ 11:59pm</p>\n\n  <ul>\n    <li>If 85% of students complete the survey, everyone gets 1 extra credit point</li>\n  </ul></li>\n  <li>Sign up for <a href=\"https://piazza.com/class/i4q8ow8g8bv7oa?cid=3293\">1-on-1 tutoring on Piazza</a>! Other students love it.</li>\n  <li><p>Project 4 due Thursday 4/23 @ 11:59pm</p>\n\n  <ul>\n    <li>Early submission point #2: All questions (including Extra Credit) by Wednesday 4/22 @ 11:59pm</li>\n  </ul></li>\n  <li><p>Recursive Art Contest entries due Monday 4/27 @ 11:59pm</p>\n\n  <ul>\n    <li>Email your code &amp; a screenshot of your art to cs61a-tae@imail.eecs.berkeley.edu (Albert)</li>\n  </ul></li>\n  <li>Homework 9 merged with Homework 10; both are due Wednesday 4/29 @ 11:59pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/17/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Please complete the <a href=\"http://goo.gl/ajEBkT\">Course Survey on Resources</a> by Monday 4/20 @ 11:59pm</p>\n\n  <ul>\n    <li>If 85% of students complete the survey, everyone gets 1 extra credit point</li>\n  </ul></li>\n  <li><p>Project 4 due Thursday 4/23 @ 11:59pm</p>\n\n  <ul>\n    <li>Early submission point #1: Questions 1-12 submitted (correctly) by Friday 4/17 @ 11:59pm</li>\n    <li>Early submission point #2: All questions (including Extra Credit) by Wednesday 4/22 @ 11:59pm</li>\n  </ul></li>\n  <li><p>Recursive Art Contest entries due Monday 4/27 @ 11:59pm</p>\n\n  <ul>\n    <li>Email your code &amp; a screenshot of your art to cs61a-tae@imail.eecs.berkeley.edu (Albert)</li>\n  </ul></li>\n  <li>Homework 9 merged with Homework 10; both are due Wednesday 4/29 @ 11:59pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/15/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Homework 8 due Wednesday 4/15 @ 11:59pm</li>\n  <li>Please complete the <a href=\"http://goo.gl/ajEBkT\">Course Survey on Resources</a> by Monday 4/20 @ 11:59pm</li>\n  <li><p>Project 4 due Thursday 4/23 @ 11:59pm</p>\n\n  <ul>\n    <li>Early submission point #1: Questions 1-12 submitted (correctly) by Friday 4/17 @ 11:59pm</li>\n    <li>Early submission point #2: All questions (including Extra Credit) by Wednesday 4/22 @ 11:59pm</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/13/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Composition corrections for projects 1, 2, &amp; 3 are due Monday 4/13 @ 11:59pm (do them now!)</p>\n\n  <ul>\n    <li>Make changes to your project based on the composition feedback you received</li>\n    <li>Run <code>python3 ok &#x2d;&#x2d;submit</code> to submit</li>\n    <li>Earn back any points you lost on composition</li>\n  </ul></li>\n  <li>Homework 8 due Wednesday 4/15 @ 11:59pm</li>\n  <li><p>Project 4 due Thursday 4/23 @ 11:59pm</p>\n\n  <ul>\n    <li>Early submission point #1: Questions 1-12 submitted (correctly) by Friday 4/17 @ 11:59pm</li>\n    <li>Early submission point #2: All questions (including Extra Credit) by Wednesday 4/22 @ 11:59pm</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/10/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Composition corrections for projects 1, 2, &amp; 3 are due Monday 4/13 @ 11:59pm (do them now!)</p>\n\n  <ul>\n    <li>Make changes to your project based on the composition feedback you received</li>\n    <li>Run <code>python3 ok &#x2d;&#x2d;submit</code> to submit</li>\n    <li>Earn back any points you lost on composition</li>\n  </ul></li>\n  <li>Homework 8 due Wednesday 4/15 @ 11:59pm</li>\n  <li><p>Project 4 due Thursday 4/23 @ 11:59pm</p>\n\n  <ul>\n    <li>Early submission point #1: Questions 1-12 submitted (correctly) by Friday 4/17 @ 11:59pm</li>\n    <li>Early submission point #2: All questions (including Extra Credit) by Wednesday 4/22 @ 11:59pm</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/8/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Download the <a href=\"http://cs61a.org/assets/interpreter/scheme\">Scheme</a> interpreter!</li>\n  <li>Read the <a href=\"http://composingprograms.com/examples/scalc/scalc.html\">Scheme Calculator</a> example from the textbook!</li>\n  <li><p>Come learn how to create <a href=\"http://inst.eecs.berkeley.edu/~cs61a/fa13/proj/scheme_contest_gallery/scheme_contest_gallery.html#submission-43-tail-recursive-ray-tracer-t-r-r-t\">this image</a> in the <a href=\"http://cs61a.org/proj/scheme/#recursive-art-contest\">Scheme recursive art contest</a></p>\n\n  <ul>\n    <li>Extra lecture Thursday 4/9 5pm-6:30pm in 2050 VLSB</li>\n  </ul></li>\n  <li>Homework 7 due Wednesday 4/8 @ 11:59pm</li>\n  <li><p>Quiz 3 due Thursday 4/9 @ 11:59pm</p>\n\n  <ul>\n    <li>Open note, open interpreter, closed classmates, closed Internet</li>\n  </ul></li>\n  <li><p>Composition corrections for projects 1, 2, &amp; 3 are due Monday 4/13 @ 11:59pm (do them now!)</p>\n\n  <ul>\n    <li>Make changes to your project based on the composition feedback you received</li>\n    <li>Run <code>python3 ok &#x2d;&#x2d;submit</code> to submit</li>\n    <li>Earn back any points you lost on composition</li>\n  </ul></li>\n  <li>Project 4 due Thursday 4/23 @ 11:59pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/6/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Download the <a href=\"http://cs61a.org/assets/interpreter/scheme\">Scheme</a> interpreter!</li>\n  <li>Read the <a href=\"http://composingprograms.com/examples/scalc/scalc.html\">Scheme Calculator</a> example from the textbook!</li>\n  <li><p>Homework 7 due Wednesday 4/8 @ 11:59pm</p>\n\n  <ul>\n    <li>Homework party on Tuesday 4/7 5pm-6:30pm in 2050 VLSB</li>\n  </ul></li>\n  <li><p>Quiz 3 released Tuesday 4/7, due Thursday 4/9 @ 11:59pm</p>\n\n  <ul>\n    <li>Open note, open interpreter, closed classmates, closed Internet</li>\n  </ul></li>\n  <li><p>Composition corrections for projects 1, 2, &amp; 3 are due Monday 4/13 @ 11:59pm (do them now!)</p>\n\n  <ul>\n    <li>Make changes to your project based on the composition feedback you received</li>\n    <li>Run <code>python3 ok &#x2d;&#x2d;submit</code> to submit</li>\n    <li>Earn back any points you lost on composition</li>\n  </ul></li>\n  <li>Project 4 due Thursday 4/23 @ 11:59pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/3/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Download the <a href=\"http://cs61a.org/assets/interpreter/scheme\">Scheme</a> interpreter!</li>\n  <li>Read the <a href=\"http://composingprograms.com/examples/scalc/scalc.html\">Scheme Calculator</a> example from the textbook!</li>\n  <li><p>Guerrilla Section 5 on Sunday 4/6 12pm-2:30pm in 271 Soda</p>\n\n  <ul>\n    <li>Scheme and functional programming ideas (recursion, linked lists, higher-order functions)</li>\n  </ul></li>\n  <li><p>Homework 7 due Wednesday 4/8 @ 11:59pm</p>\n\n  <ul>\n    <li>Homework party on Tuesday 4/7 5pm-6:30pm in 2050 VLSB</li>\n  </ul></li>\n  <li><p>Quiz 3 released Tuesday 4/7, due Thursday 4/9 @ 11:59pm</p>\n\n  <ul>\n    <li>Open note, open interpreter, closed classmates, closed Internet</li>\n  </ul></li>\n  <li><p>Composition corrections for projects 1, 2, &amp; 3 are due Monday 4/13 @ 11:59pm (do them now!)</p>\n\n  <ul>\n    <li>Make changes to your project based on the composition feedback you received</li>\n    <li>Run <code>python3 ok &#x2d;&#x2d;submit</code> to submit</li>\n    <li>Earn back any points you lost on composition</li>\n  </ul></li>\n  <li>Please check your grades on glookup and <a href=\"http://cs61a.org/regrades.html\">request regrades</a> for mistakes</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">4/1/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Download the <a href=\"http://cs61a.org/assets/interpreter/scheme\">Scheme</a> interpreter!</li>\n  <li><p>Guerrilla Section 5 on Sunday 4/6 12pm-2:30pm in 271 Soda</p>\n\n  <ul>\n    <li>Scheme and functional programming ideas (recursion, linked lists, higher-order functions)</li>\n  </ul></li>\n  <li><p>Homework 7 due Wednesday 4/8 @ 11:59pm</p>\n\n  <ul>\n    <li>Homework party on Tuesday 4/7 5pm-6:30pm in 2050 VLSB</li>\n  </ul></li>\n  <li><p>Quiz 3 released Tuesday 4/7, due Thursday 4/9 @ 11:59pm</p>\n\n  <ul>\n    <li>Open note, open interpreter, closed classmates, closed Internet</li>\n  </ul></li>\n  <li><p>Composition corrections for projects 1, 2, &amp; 3 are due Monday 4/13 @ 11:59pm (do them now!)</p>\n\n  <ul>\n    <li>Make changes to your project based on the composition feedback you received</li>\n    <li>Run <code>python3 ok &#x2d;&#x2d;submit</code> to submit</li>\n    <li>Earn back any points you lost on composition</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/30/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Homework 7 due Wednesday 4/8 @ 11:59pm</li>\n  <li><p>Quiz 3 released Tuesday 4/7, due Thursday 4/9 @ 11:59pm</p>\n\n  <ul>\n    <li>Open note, open interpreter, closed classmates, closed Internet</li>\n  </ul></li>\n  <li><p>Composition corrections for projects 1, 2, &amp; 3 are due Monday 4/13 @ 11:59pm (do them now!)</p>\n\n  <ul>\n    <li>Make changes to your project based on the composition feedback you received</li>\n    <li>Earn back any points you lost on composition</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/20/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Midterm 2 solutions are posted:</p>\n\n  <ul>\n    <li><a href=\"http://cs61a.org/assets/pdfs/61a-sp15-mt2.pdf\">Exam</a></li>\n    <li><a href=\"http://cs61a.org/assets/pdfs/61a-sp15-mt2-solution.pdf\">Solution</a></li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/16/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Homework 6 due Monday 3/16 @ 11:59pm</li>\n  <li><p>Midterm 2 is on Thursday 3/19 7pm-9pm</p>\n\n  <ul>\n    <li>http://cs61a.org/exams/midterm2.html</li>\n    <li>Review session on Tuesday 3/17 5pm-6:30pm in 2050 VLSB</li>\n    <li>HKN review session on Sunday 3/15 12-3pm in 10 Evans</li>\n    <li>1 2-sided sheet of hand-written notes created by you + 2 official study guides</li>\n    <li>Same exam location as midterm 1. See http://cs61a.org/exams/midterm2.html</li>\n    <li>Recursion, recursive data structures, mutation, and objects</li>\n  </ul></li>\n  <li>No lecture next Wednesday 3/18</li>\n  <li>No discussion sections next Thursday 3/19 or Friday 3/20</li>\n  <li>Lecture next Friday 3/20 is a video (but a great one)</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/13/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Homework 6 due Monday 3/16 @ 11:59pm</li>\n  <li>Guerrilla section 4 on Saturday 1:30pm-3:30pm in 271 Soda</li>\n  <li><p>Midterm 2 is on Thursday 3/19 7pm-9pm</p>\n\n  <ul>\n    <li>Review session on Tuesday 3/17 5pm-6:30pm in 2050 VLSB</li>\n    <li>HKN review session on Sunday 3/15 12-3pm in 10 Evans</li>\n    <li>Conflict form submissions are due Friday 3/13!</li>\n    <li>1 2-sided sheet of hand-written notes created by you + 2 official study guides</li>\n    <li>Same exam location as midterm 1. See http://cs61a.org/exams/midterm2.html</li>\n    <li>Today's lecture contains the last of the Midterm 2 material (Monday is just examples)</li>\n  </ul></li>\n  <li>No lecture next Wednesday 3/18</li>\n  <li>No discussion sections next Thursday 3/19 or Friday 3/20</li>\n  <li>Lecture next Friday 3/20 is a video (but a great one)</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/11/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Project 3 due Thursday 3/12 @ 11:59pm (get started now!)</p>\n\n  <ul>\n    <li>Bonus point for early submission by Wednesday 3/11</li>\n  </ul></li>\n  <li>Homework 6 due Monday 3/16 @ 11:59pm</li>\n  <li>Guerrilla section this weekend on linked lists and trees</li>\n  <li><p>Midterm 2 is on Thursday 3/19 7pm-9pm</p>\n\n  <ul>\n    <li>Fill out conflict form by Friday if you cannot attend due to a course conflict</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/9/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Project 3 due Thursday 3/12 @ 11:59pm (get started now!)</p>\n\n  <ul>\n    <li>Project party on Tuesday 3/10 5pm-6:30pm in 2050 VLSB</li>\n    <li>Bonus point for early submission by Wednesday 3/11</li>\n  </ul></li>\n  <li>Homework 6 due Monday 3/16 @ 11:59pm</li>\n  <li>Guerrilla section this weekend on linked lists and trees</li>\n  <li><p>Midterm 2 is on Thursday 3/19 7pm-9pm</p>\n\n  <ul>\n    <li>Fill out conflict form if you cannot attend due to a course conflict</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/6/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Project 3 due Thursday 3/12 @ 11:59pm (get started now!)</p>\n\n  <ul>\n    <li>Project party on Tuesday 3/10 5pm-6:30pm in 2050 VLSB</li>\n    <li>Bonus point for early submission by Wednesday 3/11</li>\n  </ul></li>\n  <li>Homework 6 due Monday 3/16 @ 11:59pm (not yet released)</li>\n  <li><p>Midterm 2 is on Thursday 3/19 7pm-9pm</p>\n\n  <ul>\n    <li>Fill out conflict form if you cannot attend due to a course conflict</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/4/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Delayed: Hog contest winners will be announced Friday 3/6 in lecture</li>\n  <li>Homework 5 is due Wednesday 3/4 @ 11:59pm</li>\n  <li>Quiz 2 is due Thursday 3/5 @ 11:59pm (challenging!)</li>\n  <li>Project 3 is due Thursday 3/12 @ 11:59pm</li>\n  <li>Delayed: Homework 6 due Monday 3/16 @ 11:59pm</li>\n  <li><p>Midterm 2 is on Thursday 3/19 7pm-9pm</p>\n\n  <ul>\n    <li>Emphasis: mutable data, object-oriented programming, recursion, and recursive data</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">3/2/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Homework 5 is due Wednesday 3/4 @ 11:59pm</p>\n\n  <ul>\n    <li>Homework/Project party Tuesday 3/3 5pm-6:30pm in 2050 VLSB</li>\n  </ul></li>\n  <li>Quiz 2 is due Thursday 3/5 @ 11:59pm</li>\n  <li>Project 3 is due Thursday 3/12 @ 11:59pm</li>\n  <li>Midterm 2 is on Thursday 3/19 7pm-9pm</li>\n  <li>Hog strategy contest winners will be announced on Friday 3/6 in lecture (delayed)</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/27/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Homework 5 due Wednesday 3/4 @ 11:59pm</li>\n  <li>Project 3 due Thursday  3/12  @ 11:59pm</li>\n  <li>Midterm 2 on  Thursday  3/19  7pm-9pm</li>\n  <li><p>Quiz  2 released on or before Wednesday 3/4</p>\n\n  <ul>\n    <li>Due Thursday  3/5 @ 11:59pm</li>\n    <li>Object-oriented programming</li>\n    <li>Similar to  homework  5</li>\n  </ul></li>\n  <li>Guerrilla section this  Sunday  3/1 on  mutation</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/25/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Project 2 due Thursday 2/26 @ 11:59pm</p>\n\n  <ul>\n    <li>Office hours on Wednesday 2/25 extended until 6pm in 240 Bechtel</li>\n    <li>Bonus point for early submission by Wednesday 2/25 @ 11:59pm!</li>\n  </ul></li>\n  <li>Relocated office hours on Thursday 2/26: 380 Soda (11am-3pm) &amp; 606 Soda (3pm-6pm)</li>\n  <li>Marvin Zhang (esteemed veteran TA) will lecture on Friday 2/27 instead of John</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/23/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Homework 4 due Monday 2/23 @ 11:59pm (small)</li>\n  <li><p>Project 2 due Thursday 2/26 @ 11:59pm (BIG!)</p>\n\n  <ul>\n    <li>Project party on Tuesday 2/24 5pm-6:30pm in 2050 VLSB</li>\n    <li>Extra office hours on Wednesday 2/25 4pm-6pm in Bechtel (Garbarini Lounge)</li>\n    <li>Bonus point for early submission by Wednesday 2/25 @ 11:59pm!</li>\n  </ul></li>\n  <li><p>Relocated office hours this week</p>\n\n  <ul>\n    <li>Office hours on Monday 2/23 3pm-5pm are relocated to 310 Soda</li>\n    <li>Office hours on Thursday 2/26 are relocated to 380 Soda (11am-3pm) &amp; 606\n    Soda (3pm-6pm)</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/20/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Group tutoring has 80 new seats! Individual tutoring is now also available (See Piazza)</li>\n  <li>Homework 4 due Monday 2/23 @ 11:59pm (small)</li>\n  <li><p>Project 2 due Thursday 2/26 @ 11:59pm (BIG!)</p>\n\n  <ul>\n    <li>Project party Tuesday 2/24 5pm-6:30pm in 2050 VLSB</li>\n    <li>Bonus point for early submission by Wednesday 2/25 @ 11:59pm!</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/18/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Composition feedback and scores for Project 1 are on\n  <a href=\"http://ok.cs61a.org\">http://ok.cs61a.org</a></p>\n\n  <ul>\n    <li>If you received 0/2, you can revise your project (after midterm 2) to get\n    2/2</li>\n    <li>If you received 2/2, no revision is necessary (but still read the\n    comments)</li>\n  </ul></li>\n  <li>Optional Hog Contest due Wednesday 2/18 @ 11:59pm</li>\n  <li>Homework 3 due Thursday 2/19 @ 11:59pm</li>\n  <li>Homework 4 due Monday 2/23 @ 11:59pm</li>\n  <li><p>Project 2 due Thursday 2/26 @ 11:59pm</p>\n\n  <ul>\n    <li>Bonus point for early submission by Wednesday 2/25 @ 11:59pm!</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/13/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Guerrilla Section 2 is on Monday 2/16</p>\n\n  <ul>\n    <li>RSVP on Piazza if you want to come!</li>\n  </ul></li>\n  <li><p>Homework 3 due Thursday 2/19 @ 11:59pm (extended)</p>\n\n  <ul>\n    <li>Homework Party on Tuesday 2/17 5pm-6:30pm in 2050 VLSB</li>\n  </ul></li>\n  <li>Optional Hog Contest due Wednesday 2/18 @ 11:59pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/11/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>No office hours this week (2/9-2/13)</li>\n  <li>Guerrilla section this Monday 2/16 on recursion (Please RSVP on Piazza!)</li>\n  <li><p>Composition scores for Project 1 will mostly be assigned this week</p>\n\n  <ul>\n    <li>0/2: Make changes suggested by the TA/tutor in order to earn back the 2\n    lost points</li>\n    <li>2/2: No need to make changes, but keep their comments in mind for future\n    projects</li>\n  </ul></li>\n  <li><p>Homework 3 due Thursday 2/19 @ 11:59pm</p>\n\n  <ul>\n    <li>Homework party on Tuesday 2/17 @ 5pm in 2050 VLSB</li>\n  </ul></li>\n  <li>Optional Hog Contest entries due Wednesday 2/18 @ 11:59pm</li>\n  <li><p>Midterm 1 solutions are posted (see Piazza)</p>\n\n  <ul>\n    <li>Scores and rubrics will be released soon via email</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/6/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Midterm 1 is on Monday 2/9 from 7pm to 9pm!</p>\n\n  <ul>\n    <li>Go to a room based on the first letter of your @berkeley.edu email:\u2028 145\n    Dwinelle (A-B, #), 155 Dwinelle (C-K), &amp; 1 Pimentel (L-Z)</li>\n    <li>HKN review session on Saturday 2/7 (2050 VLSB 1-4)</li>\n    <li>Review sessions on Sunday 2/8 (1 Pimentel 1-2:30 &amp; 2:30-4)</li>\n    <li>Info:\n    <a href=\"exams/midterm1.html\">cs61a.org/exams/midterm1.html</a></li>\n  </ul></li>\n  <li>No lecture on Monday 2/9</li>\n  <li>No lab or office hours on Tuesday 2/10 or Wednesday 2/11</li>\n  <li>Optional Hog strategy contest concludes Wednesday 2/18 @ 11:59pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/4/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Project 1 is due Thursday 2/5 @ 11:59pm; Early bonus point for submitting on\n  Wednesday!</p>\n\n  <ul>\n    <li>Extra tutor office hours on Wednesday 2/4 4pm-6pm in Garbarini Lounge</li>\n  </ul></li>\n  <li><p>Midterm 1 is on Monday 2/9 from 7pm to 9pm!</p>\n\n  <ul>\n    <li>Review sessions on Sunday 2/8 (1 Pimentel 1-2:30 &amp; 2:30-4)</li>\n    <li>HKN review session on Saturday 2/7 (2050 VLSB 1-4)</li>\n    <li>Includes topics up to and including this lecture</li>\n    <li>Closed book/note exam, except for one page (2 sides) of hand-written notes\n    &amp; study guide</li>\n    <li>Info: <a href=\"exams/midterm1.html\">cs61a.org/exams/midterm1.html</a></li>\n    <li>Cannot attend? Fill out the conflict form by Wednesday 2/4!\n    <a href=\"http://goo.gl/2P5fKq\">http://goo.gl/2P5fKq</a></li>\n  </ul></li>\n  <li><p>Optional Hog strategy contest ends Wednesday 2/18 @ 11:59pm</p>\n\n  <ul>\n    <li>Learn about how to compute a winning strategy in Thursday's optional lecture</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">2/2/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Homework 2 due Monday 2/2 @ 11:59pm</li>\n  <li><p>Project 1 due Thursday 2/5 @ 11:59pm</p>\n\n  <ul>\n    <li>Project party on Tuesday 2/3 5pm-6:30pm in 2050 VLSB</li>\n    <li>Partner party on Wednesday 2/4 3pm-4pm in Wozniak Lounge, Soda Hall</li>\n    <li>Earn 1 bonus point if you finish by Wednesday 2/4 @ 11:59pm</li>\n    <li>Composition: Programs should be concise, well-named, understandable, and\n    easy to follow</li>\n  </ul></li>\n  <li><p>Extra lecture 2 on Thursday 2/5 5pm-6:30pm in 2050 VLSB</p>\n\n  <ul>\n    <li>Hog strategies &amp; church numerals</li>\n  </ul></li>\n  <li><p>Midterm 1 on Monday 2/9 7pm-9pm</p>\n\n  <ul>\n    <li>Conflict? Fill out the conflict form today!\n    <a href=\"http://goo.gl/2P5fKq\">http://goo.gl/2P5fKq</a></li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">1/30/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Quiz 1 scores will be posted eventually, but you already know what you'll get</p>\n\n  <ul>\n    <li>0/3: Please talk to your TA for advice on how to proceed</li>\n    <li>1/3: Make sure to spend time understanding all lab &amp; discussion questions</li>\n    <li>2/3: Practice is extremely helpful in learning how to solve CS problems</li>\n  </ul></li>\n  <li><p>Guerrilla Section 1 on higher-order functions is on Saturday 1/31 in 271 Soda</p>\n\n  <ul>\n    <li>Optional discussion to promote mastery of core concepts (prepares you for\n    midterms)</li>\n    <li>2pm - 4pm is the vanguard section (you commit to helping teach the main\n    section)</li>\n    <li>4pm - 6pm is the main section</li>\n    <li>Please do not bring questions about homework or projects to guerrilla\n    sections</li>\n  </ul></li>\n  <li>Small-group tutoring begins next week! Apply online by Sunday if you want a\n  (free) tutor</li>\n  <li>Homework 2 (which is small) is due Monday 2/2 at 11:59pm</li>\n  <li>Project 1 (which is BIG) us due Thursday 2/5 at 11:59pm</li>\n  <li>Midterm 1 is Monday 2/9 7pm-9pm. Conflict? Fill out this form ASAP:\n  <a href=\"http://goo.gl/2P5fKq\">http://goo.gl/2P5fKq</a></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">1/28/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Homework 1 due Wednesday 1/28 at 11:59pm.  Late homework is not accepted!</p>\n\n  <ul>\n    <li>Check your submission on <a href=\"http://ok.cs61a.org\">ok.cs61a.org</a> and submit\n    again if it's not right</li>\n  </ul></li>\n  <li><p>Take-home quiz 1 released Wednesday 1/28, due Thursday 1/29 at 11:59pm</p>\n\n  <ul>\n    <li>Open-computer, open notes, closed friends</li>\n    <li>Content Covered: Lectures through Monday 1/26 (same topics as Homework 1)</li>\n    <li>If you receive 0/3, talk to your TA (or me) about how to approach the\n    course</li>\n  </ul></li>\n  <li><p>Extra lectures: Earn 1 unit (pass/no pass) by learning about optional\n  additional topics</p>\n\n  <ul>\n    <li>First extra lecture: Thursday 1/29 5-6:30pm in 2050 VLSB (Come there to\n    learn more)</li>\n  </ul></li>\n  <li>Project 1 due Thursday 2/5 at 11:59pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">1/26/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li><p>Homework 1 is due Wednesday 1/28 @ 11:59pm</p>\n\n  <ul>\n    <li>Homework party on Tuesday 1/27 5-6:30pm in 2050 VLSB</li>\n    <li>Please declare your partner on <a href=\"http://ok.cs61a.org\">ok.cs61a.org</a></li>\n  </ul></li>\n  <li><p>Take-home Quiz 1 released Wednesday 1/28 is due Thursday 1/29 @ 11:59pm</p>\n\n  <ul>\n    <li>3 points, similar in format to homework, but graded for correctness</li>\n    <li>If you score 0/3, you will need to talk to the course staff or be dropped</li>\n    <li>Open-computer: You can use the Python interpreter, watch course videos,\n    etc.</li>\n    <li>Closed-help: Please don't talk to your classmates, search for answers,\n    etc.</li>\n  </ul></li>\n  <li>Project 1 released this week is due Thursday 2/5 @ 11:59pm</li>\n  <li>Midterm 1 on Monday 2/9 7pm-9pm</li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">1/23/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Starting next week, submitting labs &amp; attending section will provide a midterm\n  safety net</li>\n  <li><p>Homework 1 is due next Wednesday 1/28</p>\n\n  <ul>\n    <li>All homework is graded on effort; you must make progress on each problem\n    to earn 2/2</li>\n    <li>Homework Party on Tuesday 1/27 5-6:30pm in 2050 VLSB</li>\n  </ul></li>\n  <li>Quiz 1 released next Wednesday 1/28 is due next Thursday 1/29 (graded on\n  correctness)</li>\n  <li><p>Ask questions about lab and homework assignments in office hours!\n  <a href=\"weekly.html\">cs61a.org/weekly.html</a></p>\n\n  <ul>\n    <li>2 locations in Bechtel Engineering Center (Map:\n    <a href=\"http://goo.gl/dAcHXf\">http://goo.gl/dAcHXf</a>)</li>\n    <li>11-2 &amp; 3-5 on Monday, 11-6 on Tuesday &amp; Thursday, 11-2 &amp; 3-4 on Wednesday,\n    11-1 on Friday</li>\n  </ul></li>\n  <li><p>You need to register a class account (Lab 0); that's how we track assignments</p>\n\n  <ul>\n    <li>Please register even if you're on the waitlist or applying for concurrent\n    enrollment</li>\n  </ul></li>\n</ul>\n</div>",
+    "<div class=\"announcement\">\n<span class=\"date\">1/21/15</span>\n<span id=\"older-announcement\">\n<a href=\"javascript:setAnnouncements(++announcementIndex)\">(older)</a>\n</span> <span id=\"newer-announcement\">\n<a href=\"javascript:setAnnouncements(--announcementIndex)\">(newer)</a>\n</span>\n<ul>\n  <li>Welcome to CS 61A</li>\n</ul>\n</div>"
+], announcementIndex = 0;
+
+  function setAnnouncements(i) {
+    var el;
+    document.getElementById("announcements").innerHTML = announcements[i];
+    if (announcementIndex >= announcements.length - 1) {
+      el = document.getElementById("older-announcement");
+      el.innerHTML = el.innerText;
+    }
+    if (announcementIndex === 0) {
+      el = document.getElementById("newer-announcement");
+      el.innerHTML = el.innerText;
+    }
+  }
+  setAnnouncements(0);
+</script>
+
+</div>
+
+<h2>Calendar</h2>
+<table id="calendar">
+<tr>
+<th>Week</th>
+<th>Date</th>
+<th>Lecture</th>
+<th>Reading</th>
+<th>Handout</th>
+<th>Assignment</th>
+</tr>
+<tr class="even">
+<td rowspan="2" class="weeknum">1</td>
+<td>Wed 1/21</td>
+<td>Functions
+<br/>
+(<a href="https://www.youtube.com/watch?v=Rw6VyLPr128&list=PL6BsET-8jgYUQTbU_HkEYLmcGsTX-DFNl&vq=hd1080">Video</a>) (<a href="assets/slides/01-Functions_1pp.pdf">1pp</a>) (<a href="assets/slides/01-Functions_1pps.pdf">1pps</a>) (<a href="assets/slides/01-Functions_8pp.pdf">8pp</a>) (<a href="assets/slides/01.py">01.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/11-getting-started.html">1.1</a><br/>
+<a href="http://composingprograms.com/pages/12-elements-of-programming.html">1.2</a></td>
+<td><a href="lab/lab00/">Lab 0: Intro to UNIX</a><br/>
+<a href="lab/lab01/">Lab 1: Your own machine</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fri 1/23</td>
+<td>Names
+<br/>
+(<a href="https://www.youtube.com/watch?v=j0ojOSce4zA&list=PL6BsET-8jgYWjn83MdxVsfiEOPPt_md6_&vq=hd1080">Video</a>) (<a href="assets/slides/02-Names_1pp.pdf">1pp</a>) (<a href="assets/slides/02-Names_1pps.pdf">1pps</a>) (<a href="assets/slides/02-Names_8pp.pdf">8pp</a>) (<a href="assets/slides/02.py">02.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/13-defining-new-functions.html">1.3</a><br/>
+<a href="http://composingprograms.com/pages/14-designing-functions.html">1.4</a></td>
+<td><a href="disc/disc00.pdf">Discussion 0: Lost on the Moon</a> (Solutions)</td>
+<td><a href="hw/hw01/">Homework 1</a> (due Wed 1/28) (Solutions)</td>
+</tr>
+<tr class="odd">
+<td rowspan="3" class="weeknum">2</td>
+<td>Mon 1/26</td>
+<td>Control
+<br/>
+(<a href="https://www.youtube.com/watch?v=IPec2A7j2bY&list=PL6BsET-8jgYXZ7aa9wE195b94NPteCoIr&vq=hd1080">Video</a>) (<a href="assets/slides/03-Control_1pp.pdf">1pp</a>) (<a href="assets/slides/03-Control_1pps.pdf">1pps</a>) (<a href="assets/slides/03-Control_8pp.pdf">8pp</a>) (<a href="assets/slides/03.py">03.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/15-control.html">1.5</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Wed 1/28</td>
+<td>Higher-Order Functions
+<br/>
+(<a href="https://www.youtube.com/watch?v=WBAUNrsXan4&list=PL6BsET-8jgYVHi8o64uu82USYJg4B0Ezr&vq=hd1080">Video</a>) (<a href="assets/slides/04-Higher-Order_Functions_1pp.pdf">1pp</a>) (<a href="assets/slides/04-Higher-Order_Functions_1pps.pdf">1pps</a>) (<a href="assets/slides/04-Higher-Order_Functions_8pp.pdf">8pp</a>) (<a href="assets/slides/04.py">04.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/16-higher-order-functions.html">1.6</a></td>
+<td><a href="lab/lab02/">Lab 2: Functions and Control Structures</a></td>
+<td><a href="hw/quiz01/">Quiz 1</a> (due Thu 1/29) (Solutions)<br/>
+<a href="proj/hog/">Hog</a> (due Thu 2/5)</td>
+</tr>
+<tr class="odd">
+<td>Fri 1/30</td>
+<td>Environments
+<br/>
+(<a href="https://www.youtube.com/watch?v=1P2UgdAWwYg&list=PL6BsET-8jgYXVN4owr3uTsZlSUhjawHTD&vq=hd1080">Video</a>) (<a href="assets/slides/05-Environments_1pp.pdf">1pp</a>) (<a href="assets/slides/05-Environments_1pps.pdf">1pps</a>) (<a href="assets/slides/05-Environments_8pp.pdf">8pp</a>) (<a href="assets/slides/05.py">05.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/16-higher-order-functions.html">1.6</a></td>
+<td><a href="disc/disc01.pdf">Discussion 1: Control Structures and Higher Order Functions</a> (Solutions)</td>
+<td><a href="hw/hw02/">Homework 2</a> (due Mon 2/2) (Solutions)</td>
+</tr>
+<tr class="even">
+<td rowspan="3" class="weeknum">3</td>
+<td>Mon 2/2</td>
+<td>Recursion
+<br/>
+(<a href="https://www.youtube.com/watch?v=B2_8t2jyvX0&list=PL6BsET-8jgYV7Bz0fJk6SGhPpIepseBIi&vq=hd1080">Video</a>) (<a href="assets/slides/06-Recursion_1pp.pdf">1pp</a>) (<a href="assets/slides/06-Recursion_1pps.pdf">1pps</a>) (<a href="assets/slides/06-Recursion_8pp.pdf">8pp</a>) (<a href="assets/slides/06.py">06.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/17-recursive-functions.html">1.7</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wed 2/4</td>
+<td>Tree Recursion
+<br/>
+(<a href="https://www.youtube.com/watch?v=VYYkJ1OLXBw&list=PL6BsET-8jgYVzv6qNMAyrUp3FGG1rnKrS&vq=hd1080">Video</a>) (<a href="assets/slides/07-Tree_Recursion_1pp.pdf">1pp</a>) (<a href="assets/slides/07-Tree_Recursion_1pps.pdf">1pps</a>) (<a href="assets/slides/07-Tree_Recursion_8pp.pdf">8pp</a>) (<a href="assets/slides/07.py">07.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/17-recursive-functions.html">1.7</a></td>
+<td><a href="lab/lab03/">Lab 3: Recursion</a></td>
+<td><a href="proj/hog_contest/">Hog Contest</a> (due Wed 2/18)</td>
+</tr>
+<tr class="even">
+<td>Fri 2/6</td>
+<td>Function Examples
+<br/>
+(<a href="https://www.youtube.com/watch?v=bi_2gAetCiI&list=PL6BsET-8jgYWxsojjxmDuB6prRFy9_EsN&vq=hd1080">Video</a>) (<a href="assets/slides/08-Function_Examples_1pp.pdf">1pp</a>) (<a href="assets/slides/08-Function_Examples_1pps.pdf">1pps</a>) (<a href="assets/slides/08-Function_Examples_8pp.pdf">8pp</a>) (<a href="assets/slides/08.py">08.py</a>)</td>
+<td></td>
+<td><a href="disc/disc02.pdf">Discussion 2: Recursion</a> (Solutions)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="3" class="weeknum">4</td>
+<td>Mon 2/9</td>
+<td>No Lecture: <a href="exams/midterm1.html">Midterm 1</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Wed 2/11</td>
+<td>Data Abstraction
+<br/>
+(<a href="https://www.youtube.com/watch?v=nzP3nJ2np8w&list=PL6BsET-8jgYWdztJo4021KHKQhp2v-WHB&vq=hd1080">Video</a>) (<a href="assets/slides/09-Data_Abstraction_1pp.pdf">1pp</a>) (<a href="assets/slides/09-Data_Abstraction_1pps.pdf">1pps</a>) (<a href="assets/slides/09-Data_Abstraction_8pp.pdf">8pp</a>) (<a href="assets/slides/09.py">09.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/21-introduction.html">2.1</a><br/>
+<a href="http://composingprograms.com/pages/22-data-abstraction.html">2.2</a></td>
+<td></td>
+<td><a href="hw/hw03/">Homework 3</a> (due Thu 2/19) (Solutions)</td>
+</tr>
+<tr class="odd">
+<td>Fri 2/13</td>
+<td>Sequences
+<br/>
+(<a href="https://www.youtube.com/watch?v=R0o37yJ1PP0&list=PL6BsET-8jgYWxWrCzuIQL6jqu6WW3K409&vq=hd1080">Video</a>) (<a href="assets/slides/10-Sequences_1pp.pdf">1pp</a>) (<a href="assets/slides/10-Sequences_1pps.pdf">1pps</a>) (<a href="assets/slides/10-Sequences_8pp.pdf">8pp</a>) (<a href="assets/slides/10.py">10.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/23-sequences.html">2.3</a></td>
+<td><a href="disc/disc03.pdf">Discussion 3: Data Abstraction</a> (Solutions)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td rowspan="3" class="weeknum">5</td>
+<td>Mon 2/16</td>
+<td>No Lecture: President's Day</td>
+<td></td>
+<td></td>
+<td><a href="proj/maps/">Maps</a> (due Thu 2/26)</td>
+</tr>
+<tr class="even">
+<td>Wed 2/18</td>
+<td>Trees
+<br/>
+(<a href="https://www.youtube.com/watch?v=c3xKjzbSxqg&list=PL6BsET-8jgYXz1omz0y0R0Oul2UeuZ4xa&vq=hd1080">Video</a>) (<a href="assets/slides/11-Trees_1pp.pdf">1pp</a>) (<a href="assets/slides/11-Trees_1pps.pdf">1pps</a>) (<a href="assets/slides/11-Trees_8pp.pdf">8pp</a>) (<a href="assets/slides/11.py">11.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/23-sequences.html">2.3</a></td>
+<td><a href="lab/lab04/">Lab 4: Lists</a></td>
+<td><a href="hw/hw04/">Homework 4</a> (due Mon 2/23) (Solutions)</td>
+</tr>
+<tr class="even">
+<td>Fri 2/20</td>
+<td>Mutable Values
+<br/>
+(<a href="https://www.youtube.com/watch?v=Q-CewobDFZM&list=PL6BsET-8jgYXU-Q8BqLp6irX3mIhglZfW&vq=hd1080">Video</a>) (<a href="assets/slides/12-Mutable_Values_1pp.pdf">1pp</a>) (<a href="assets/slides/12-Mutable_Values_1pps.pdf">1pps</a>) (<a href="assets/slides/12-Mutable_Values_8pp.pdf">8pp</a>) (<a href="assets/slides/12.py">12.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/24-mutable-data.html">2.4</a></td>
+<td><a href="disc/disc04.pdf">Discussion 4: Trees</a> (Solutions)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="3" class="weeknum">6</td>
+<td>Mon 2/23</td>
+<td>Mutable Functions
+<br/>
+(<a href="https://www.youtube.com/watch?v=w1TQ0yd8pG0&index=1&list=PL6BsET-8jgYXIj9GsmapI3AqDlBcH9_p5&vq=hd1080">Video</a>) (<a href="assets/slides/13-Mutable_Functions_1pp.pdf">1pp</a>) (<a href="assets/slides/13-Mutable_Functions_1pps.pdf">1pps</a>) (<a href="assets/slides/13-Mutable_Functions_8pp.pdf">8pp</a>) (<a href="assets/slides/13.py">13.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/24-mutable-data.html">2.4</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Wed 2/25</td>
+<td>Objects
+<br/>
+(<a href="https://www.youtube.com/watch?v=A_EFoT4cBSk&list=PL6BsET-8jgYViPUL3vs-H-xExWFBVFnwu&vq=hd1080">Video</a>) (<a href="assets/slides/14-Objects_1pp.pdf">1pp</a>) (<a href="assets/slides/14-Objects_1pps.pdf">1pps</a>) (<a href="assets/slides/14-Objects_8pp.pdf">8pp</a>) (<a href="assets/slides/14.py">14.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/25-object-oriented-programming.html">2.5</a></td>
+<td><a href="lab/lab05/">Lab 5: Trees and Dictionaries</a></td>
+<td><a href="hw/hw05/">Homework 5</a> (due Wed 3/4) (Solutions)</td>
+</tr>
+<tr class="odd">
+<td>Fri 2/27</td>
+<td>Inheritance
+<br/>
+(<a href="https://www.youtube.com/watch?v=BCNE7M-SjWM&list=PL6BsET-8jgYV2xrN6FtkJ7cSg5eksJyWC&vq=hd1080">Video</a>) (<a href="assets/slides/15-Inheritance_1pp.pdf">1pp</a>) (<a href="assets/slides/15-Inheritance_1pps.pdf">1pps</a>) (<a href="assets/slides/15-Inheritance_8pp.pdf">8pp</a>) (<a href="assets/slides/15.py">15.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/25-object-oriented-programming.html">2.5</a></td>
+<td><a href="disc/disc05.pdf">Discussion 5: Mutation</a> (Solutions)</td>
+<td><a href="proj/ants/">Ants</a> (due Thu 3/12)</td>
+</tr>
+<tr class="even">
+<td rowspan="3" class="weeknum">7</td>
+<td>Mon 3/2</td>
+<td>Representation
+<br/>
+(<a href="https://www.youtube.com/watch?v=zkkS_9-fyzo&list=PL6BsET-8jgYUMZOU1BmOEu0OS0LVPT080&vq=hd1080">Video</a>) (<a href="assets/slides/16-Representation_1pp.pdf">1pp</a>) (<a href="assets/slides/16-Representation_1pps.pdf">1pps</a>) (<a href="assets/slides/16-Representation_8pp.pdf">8pp</a>) (<a href="assets/slides/16.py">16.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/27-object-abstraction.html">2.7</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wed 3/4</td>
+<td>Generic Functions
+<br/>
+(<a href="https://www.youtube.com/watch?v=wlu28Y0FpKU&list=PL6BsET-8jgYXRvv3OYY1XBuCpD0LwYT2z&vq=hd1080">Video</a>) (<a href="assets/slides/17-Generic_Functions_1pp.pdf">1pp</a>) (<a href="assets/slides/17-Generic_Functions_1pps.pdf">1pps</a>) (<a href="assets/slides/17-Generic_Functions_8pp.pdf">8pp</a>) (<a href="assets/slides/17.py">17.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/27-object-abstraction.html">2.7</a></td>
+<td><a href="lab/lab06/">Lab 6: Object Oriented Programming</a></td>
+<td><a href="hw/quiz02/">Quiz 2</a> (due Thu 3/5) (Solutions)</td>
+</tr>
+<tr class="even">
+<td>Fri 3/6</td>
+<td>Composition
+<br/>
+(<a href="https://www.youtube.com/watch?v=yC4WPw_6ehY&list=PL6BsET-8jgYUI1li1uY4-htTxhxbVhZ1i&vq=hd1080">Video</a>) (<a href="assets/slides/18-Composition_1pp.pdf">1pp</a>) (<a href="assets/slides/18-Composition_1pps.pdf">1pps</a>) (<a href="assets/slides/18-Composition_8pp.pdf">8pp</a>) (<a href="assets/slides/18.py">18.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/29-recursive-objects.html">2.9</a></td>
+<td><a href="disc/disc06.pdf">Discussion 6: Object Oriented Programming and Interfaces</a> (Solutions)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="3" class="weeknum">8</td>
+<td>Mon 3/9</td>
+<td>Hierarchy
+<br/>
+(<a href="https://www.youtube.com/watch?v=DWhsOSHjY98&list=PL6BsET-8jgYVkszPu32UP3S3m0BsyGbNz&vq=hd1080">Video</a>) (<a href="assets/slides/19-Hierarchy_1pp.pdf">1pp</a>) (<a href="assets/slides/19-Hierarchy_1pps.pdf">1pps</a>) (<a href="assets/slides/19-Hierarchy_8pp.pdf">8pp</a>) (<a href="assets/slides/19.py">19.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/29-recursive-objects.html">2.9</a></td>
+<td></td>
+<td><a href="hw/hw06/">Homework 6</a> (due Mon 3/16) (Solutions)</td>
+</tr>
+<tr class="odd">
+<td>Wed 3/11</td>
+<td>Growth
+<br/>
+(<a href="https://www.youtube.com/watch?v=nXHvSlu-3rU&list=PL6BsET-8jgYXXQZ13nKazWT5DA4S_x8np&vq=hd1080">Video</a>) (<a href="assets/slides/20-Growth_1pp.pdf">1pp</a>) (<a href="assets/slides/20-Growth_1pps.pdf">1pps</a>) (<a href="assets/slides/20-Growth_8pp.pdf">8pp</a>) (<a href="assets/slides/20.py">20.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/28-efficiency.html">2.8</a></td>
+<td><a href="lab/lab07/">Lab 7: Recursive Objects</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fri 3/13</td>
+<td>Sets
+<br/>
+(<a href="https://www.youtube.com/watch?v=eE5gTdwqboI&list=PL6BsET-8jgYVJRDmWN6VbZILZ1nYQTv7Z&vq=hd1080">Video</a>) (<a href="assets/slides/21-Sets_1pp.pdf">1pp</a>) (<a href="assets/slides/21-Sets_1pps.pdf">1pps</a>) (<a href="assets/slides/21-Sets_8pp.pdf">8pp</a>) (<a href="assets/slides/21.py">21.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/29-recursive-objects.html">2.9</a></td>
+<td><a href="disc/disc07.pdf">Discussion 7: Orders of Growth</a> (Solutions)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td rowspan="3" class="weeknum">9</td>
+<td>Mon 3/16</td>
+<td>Data Examples
+<br/>
+(<a href="https://www.youtube.com/watch?v=ZZhjo3-MGhU&list=PL6BsET-8jgYWuLlTL3jAZHRvl8ArtL0xA&vq=hd1080">Video</a>) (<a href="assets/slides/22-Data_Examples_1pp.pdf">1pp</a>) (<a href="assets/slides/22-Data_Examples_1pps.pdf">1pps</a>) (<a href="assets/slides/22-Data_Examples_8pp.pdf">8pp</a>) (<a href="assets/slides/22.py">22.py</a>)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wed 3/18</td>
+<td>No Lecture: <a href="exams/midterm2.html">Midterm 2 on Thurs 3/19</a></td>
+<td></td>
+<td><a href="lab/lab08/">Lab 8: Sets</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fri 3/20</td>
+<td>Users
+<br/>
+(<a href="https://www.youtube.com/watch?v=kzDpfk8YhlE&list=PL6BsET-8jgYXUY1CgeETigDkANUY97YlF&vq=hd1080">Video</a>)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="3" class="weeknum">10</td>
+<td>Mon 3/23</td>
+<td>No Lecture: Spring Break</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Wed 3/25</td>
+<td>No Lecture: Spring Break</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fri 3/27</td>
+<td>No Lecture: Spring Break</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td rowspan="3" class="weeknum">11</td>
+<td>Mon 3/30</td>
+<td>Scheme
+<br/>
+(<a href="https://www.youtube.com/watch?v=esIvijecRFw&list=PL6BsET-8jgYXXvyxTuqq_VZwJ739uD3FH&vq=hd1080">Video</a>) (<a href="assets/slides/24-Scheme_1pp.pdf">1pp</a>) (<a href="assets/slides/24-Scheme_1pps.pdf">1pps</a>) (<a href="assets/slides/24-Scheme_8pp.pdf">8pp</a>) (<a href="assets/slides/24.scm">24.scm</a>)</td>
+<td><a href="http://composingprograms.com/pages/31-introduction.html">3.1</a><br/>
+<a href="http://composingprograms.com/pages/32-functional-programming.html">3.2</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wed 4/1</td>
+<td>Exceptions
+<br/>
+(<a href="https://www.youtube.com/watch?v=fdw4up7yycQ&list=PL6BsET-8jgYV3dBu5A0l5EXimDbSP9YCb&vq=hd1080">Video</a>) (<a href="assets/slides/25-Exceptions_1pp.pdf">1pp</a>) (<a href="assets/slides/25-Exceptions_1pps.pdf">1pps</a>) (<a href="assets/slides/25-Exceptions_8pp.pdf">8pp</a>) (<a href="assets/slides/25.py">25.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/33-exceptions.html">3.3</a></td>
+<td><a href="lab/lab09/">Lab 9: Scheme</a></td>
+<td><a href="hw/hw07/">Homework 7</a> (due Wed 4/8) (Solutions)</td>
+</tr>
+<tr class="even">
+<td>Fri 4/3</td>
+<td>Calculator
+<br/>
+(<a href="https://www.youtube.com/watch?v=3ll6sSOg520&index=1&list=PL6BsET-8jgYW1jCx_q32WGFjfXfHExveL&vq=hd1080">Video</a>) (<a href="assets/slides/26-Calculator_1pp.pdf">1pp</a>) (<a href="assets/slides/26-Calculator_1pps.pdf">1pps</a>) (<a href="assets/slides/26-Calculator_8pp.pdf">8pp</a>) (<a href="assets/slides/26.scm">26.scm</a>)</td>
+<td><a href="http://composingprograms.com/pages/34-interpreters-for-languages-with-combination.html">3.4</a></td>
+<td><a href="disc/disc08.pdf">Discussion 8: Scheme</a> (Solutions)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="3" class="weeknum">12</td>
+<td>Mon 4/6</td>
+<td>Interpreters
+<br/>
+(<a href="https://www.youtube.com/watch?v=gm2PUh07bMI&list=PL6BsET-8jgYWor6Lt6IV0Jr4fPG6Ea2bT&vq=hd1080">Video</a>) (<a href="assets/slides/27-Interpreters_1pp.pdf">1pp</a>) (<a href="assets/slides/27-Interpreters_1pps.pdf">1pps</a>) (<a href="assets/slides/27-Interpreters_8pp.pdf">8pp</a>)</td>
+<td><a href="http://composingprograms.com/pages/35-interpreters-for-languages-with-abstraction.html">3.5</a></td>
+<td></td>
+<td><a href="proj/scheme/">Scheme</a> (due Thu 4/23)</td>
+</tr>
+<tr class="odd">
+<td>Wed 4/8</td>
+<td>Tail Calls
+<br/>
+(<a href="https://www.youtube.com/watch?v=BW8Y_OVpzDo&list=PL6BsET-8jgYWKO_OyHv-xTZMbawPHekIE&vq=hd1080">Video</a>) (<a href="assets/slides/28-Tail_Calls_1pp.pdf">1pp</a>) (<a href="assets/slides/28-Tail_Calls_1pps.pdf">1pps</a>) (<a href="assets/slides/28-Tail_Calls_8pp.pdf">8pp</a>) (<a href="assets/slides/28.scm">28.scm</a>)</td>
+<td><a href="http://composingprograms.com/pages/35-interpreters-for-languages-with-abstraction.html">3.5</a></td>
+<td><a href="lab/lab10/">Lab 10: Interpreters</a></td>
+<td><a href="hw/quiz03/">Quiz 3</a> (due Thu 4/9) (Solutions)</td>
+</tr>
+<tr class="odd">
+<td>Fri 4/10</td>
+<td>Iterators
+<br/>
+(<a href="https://www.youtube.com/watch?v=AWhoY2oZVfo&list=PL6BsET-8jgYWKPC0V2hmBloEXr7sdAg-v&vq=hd1080">Video</a>) (<a href="assets/slides/29-Iterators_1pp.pdf">1pp</a>) (<a href="assets/slides/29-Iterators_1pps.pdf">1pps</a>) (<a href="assets/slides/29-Iterators_8pp.pdf">8pp</a>) (<a href="assets/slides/29.py">29.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/42-implicit-sequences.html">4.2</a></td>
+<td><a href="disc/disc09.pdf">Discussion 9: Tail Calls</a> (Solutions)</td>
+<td><a href="hw/hw08/">Homework 8</a> (due Wed 4/15) (Solutions)</td>
+</tr>
+<tr class="even">
+<td rowspan="3" class="weeknum">13</td>
+<td>Mon 4/13</td>
+<td>Streams
+<br/>
+(<a href="https://www.youtube.com/watch?v=YrqGb2JBkNo&list=PL6BsET-8jgYXli0hoS9ypKVXVXNUMmhkc&vq=hd1080">Video</a>) (<a href="assets/slides/30-Streams_1pp.pdf">1pp</a>) (<a href="assets/slides/30-Streams_1pps.pdf">1pps</a>) (<a href="assets/slides/30-Streams_8pp.pdf">8pp</a>) (<a href="assets/slides/30.py">30.py</a>)</td>
+<td><a href="http://composingprograms.com/pages/42-implicit-sequences.html">4.2</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wed 4/15</td>
+<td>Declarative Programming
+<br/>
+(<a href="https://www.youtube.com/watch?v=n121RAYkVPs&list=PL6BsET-8jgYWX6SojwvY32mFToOxMu33U&vq=hd1080">Video</a>) (<a href="assets/slides/31-Declarative_Programming_1pp.pdf">1pp</a>) (<a href="assets/slides/31-Declarative_Programming_1pps.pdf">1pps</a>) (<a href="assets/slides/31-Declarative_Programming_8pp.pdf">8pp</a>) (<a href="assets/slides/31.sql">31.sql</a>)</td>
+<td><a href="http://composingprograms.com/pages/43-declarative-programming.html">4.3</a></td>
+<td><a href="lab/lab11/">Lab 11: Iterators, Generators, and Streams</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fri 4/17</td>
+<td>Tables
+<br/>
+(<a href="https://www.youtube.com/watch?v=SaG01Ddywkc&list=PL6BsET-8jgYUF1zgVr-CgSnmleudWPjMD&vq=hd1080">Video</a>) (<a href="assets/slides/32-Tables_1pp.pdf">1pp</a>) (<a href="assets/slides/32-Tables_1pps.pdf">1pps</a>) (<a href="assets/slides/32-Tables_8pp.pdf">8pp</a>) (<a href="assets/slides/32.sql">32.sql</a>)</td>
+<td><a href="http://composingprograms.com/pages/43-declarative-programming.html">4.3</a></td>
+<td><a href="disc/disc10.pdf">Discussion 10: Iterators, Generators, and Streams</a> (Solutions)</td>
+<td>Scheme Contest (due Mon 4/27)</td>
+</tr>
+<tr class="odd">
+<td rowspan="3" class="weeknum">14</td>
+<td>Mon 4/20</td>
+<td>Recursive Select
+<br/>
+(<a href="https://www.youtube.com/watch?v=pExuYKZNRH4&list=PL6BsET-8jgYXnX5_b70Is1sdoaIRvDF6H&vq=hd1080">Video</a>) (<a href="assets/slides/33-Recursive_Select_1pp.pdf">1pp</a>) (<a href="assets/slides/33-Recursive_Select_1pps.pdf">1pps</a>) (<a href="assets/slides/33-Recursive_Select_8pp.pdf">8pp</a>) (<a href="assets/slides/33.sql">33.sql</a>)</td>
+<td><a href="http://composingprograms.com/pages/43-declarative-programming.html">4.3</a></td>
+<td></td>
+<td><a href="hw/hw09/">Homework 9</a> (due Wed 4/29) (Solutions)</td>
+</tr>
+<tr class="odd">
+<td>Wed 4/22</td>
+<td>Aggregation
+<br/>
+(<a href="https://www.youtube.com/watch?v=2ajhv_e_u5Q&list=PL6BsET-8jgYXjUV5yhiUOTb57VCvu-05e&vq=hd1080">Video</a>) (<a href="assets/slides/34-Aggregation_1pp.pdf">1pp</a>) (<a href="assets/slides/34-Aggregation_1pps.pdf">1pps</a>) (<a href="assets/slides/34-Aggregation_8pp.pdf">8pp</a>) (<a href="assets/slides/34.sql">34.sql</a>)</td>
+<td><a href="http://composingprograms.com/pages/43-declarative-programming.html">4.3</a></td>
+<td><a href="lab/lab12/">Lab 12: SQL</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fri 4/24</td>
+<td>Distributed Computing
+<br/>
+(<a href="https://www.youtube.com/watch?v=Zodu-ODnXuk&list=PL6BsET-8jgYWPoecd14C2cg-5Th8KENVj&vq=hd1080">Video</a>) (<a href="assets/slides/35-Distributed_Computing_1pp.pdf">1pp</a>) (<a href="assets/slides/35-Distributed_Computing_1pps.pdf">1pps</a>) (<a href="assets/slides/35-Distributed_Computing_8pp.pdf">8pp</a>)</td>
+<td><a href="http://composingprograms.com/pages/46-distributed-data-processing.html">4.6</a></td>
+<td><a href="disc/disc11.pdf">Discussion 11: SQL</a> (Solutions)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td rowspan="3" class="weeknum">15</td>
+<td>Mon 4/27</td>
+<td>Distributed Data
+<br/>
+(<a href="https://www.youtube.com/watch?v=91hRkNtqnNI&list=PL6BsET-8jgYU1oQApl6yizWzJmeldHAdc&vq=hd1080">Video</a>) (<a href="assets/slides/36-Distributed_Data_1pp.pdf">1pp</a>) (<a href="assets/slides/36-Distributed_Data_1pps.pdf">1pps</a>) (<a href="assets/slides/36-Distributed_Data_8pp.pdf">8pp</a>) (<a href="assets/slides/36.zip">36.zip</a>)</td>
+<td><a href="http://composingprograms.com/pages/46-distributed-data-processing.html">4.6</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wed 4/29</td>
+<td>Natural Language
+<br/>
+(<a href="https://www.youtube.com/watch?v=63kincM38po&list=PL6BsET-8jgYXzBQRbqKeihwr4d-qX8QR2&vq=hd1080">Video</a>) (<a href="assets/slides/37-Natural_Language_1pp.pdf">1pp</a>) (<a href="assets/slides/37-Natural_Language_1pps.pdf">1pps</a>) (<a href="assets/slides/37-Natural_Language_8pp.pdf">8pp</a>) (<a href="assets/slides/37.zip">37.zip</a>)</td>
+<td></td>
+<td><a href="lab/lab13/">Lab 13: SQL II: Aggregation</a></td>
+<td><a href="hw/quiz04/">Quiz 4</a> (due Thu 4/30) (Solutions)</td>
+</tr>
+<tr class="even">
+<td>Fri 5/1</td>
+<td>Conclusion</td>
+<td></td>
+<td><a href="disc/disc12.pdf">Discussion 12: Final Review</a> (Solutions)</td>
+<td><a href="hw/hw11/">Homework 11</a> (due Wed 5/6)<br/>
+<a href="hw/hw12/">Homework 12</a> (due Wed 5/6)</td>
+</tr>
+<tr class="even">
+<td rowspan="1" class="weeknum">16</td>
+<td>Tue 5/12</td>
+<td>No Lecture: <a href="exams/final.html">Final</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+    </div>
+  </body>
+  
+</html>
