@@ -17,24 +17,6 @@ def g(n):
         return n
     else:
         return g(n-1) + 2*g(n-2) + 3*g(n-3)
-def g_iter(n):
-    """Return the value of G(n), computed iteratively.
-
-    >>> g_iter(1)
-    1
-    >>> g_iter(2)
-    2
-    >>> g_iter(3)
-    3
-    >>> g_iter(4)
-    10
-    >>> g_iter(5)
-    22
-    """
-    "*** YOUR CODE HERE ***"
-    k = n
-    while k >3:pass
-
 
 
 def has_seven(k):
@@ -98,93 +80,22 @@ def pingpong(n):
     """
     "*** YOUR CODE HERE ***"
 
-    if counter(): == 0:
-        return n
+    def next_num(k, p, up):
+        if k == n:
+            return p
+        if up:
+            return switch_dir(k+1, p+1, up)
+        else:
+            return switch_dir(k+1, p-1, up)
 
-    def get_one():
-        return 1
+    def switch_dir(k, p, up):
+        if k % 7 == 0 or has_seven(k):
+            return next_num(k, p, not up)
+        else:
+            return next_num(k, p, up)
 
-    def shouldswitch():
-        if has_seven(n):
-            return True
-        if n % 7 ==0:
-            return True
-        return False
-
-
-    def uppong(n):
-        return n+1
-
-    def downpong(n):
-        return n-1
-
-    def counter(k):
-        return k-1
-
-    def docurrent(current_directon):
-        if shouldswitch():
-            return flipper(current_directon)
-        return current_directon
+    return next_num(1, 1, True)
 
 
 
 
-    def flipper(direction):
-        if direction == uppong:
-            return downpong
-        return uppong
-
-
-
-
-
-
-def count_change(amount):
-    """Return the number of ways to make change for amount.
-
-    >>> count_change(7)
-    6
-    >>> count_change(10)
-    14
-    >>> count_change(20)
-    60
-    >>> count_change(100)
-    9828
-    """
-    "*** YOUR CODE HERE ***"
-
-
-def towers_of_hanoi(n, start, end):
-    """Print the moves required to solve the towers of hanoi game, starting
-    with n disks on the start pole and finishing on the end pole.
-
-    The game is to assumed to have 3 poles.
-
-    >>> towers_of_hanoi(1, 1, 3)
-    Move the top disk from rod 1 to rod 3
-    >>> towers_of_hanoi(2, 1, 3)
-    Move the top disk from rod 1 to rod 2
-    Move the top disk from rod 1 to rod 3
-    Move the top disk from rod 2 to rod 3
-    >>> towers_of_hanoi(3, 1, 3)
-    Move the top disk from rod 1 to rod 3
-    Move the top disk from rod 1 to rod 2
-    Move the top disk from rod 3 to rod 2
-    Move the top disk from rod 1 to rod 3
-    Move the top disk from rod 2 to rod 1
-    Move the top disk from rod 2 to rod 3
-    Move the top disk from rod 1 to rod 3
-    """
-    assert 0 < start <= 3 and 0 < end <= 3 and start != end, "Bad start/end"
-    "*** YOUR CODE HERE ***"
-
-
-from operator import sub, mul
-
-def make_anonymous_factorial():
-    """Return the value of an expression that computes factorial.
-
-    >>> make_anonymous_factorial()(5)
-    120
-    """
-    return 'YOUR_EXPRESSION_HERE'
